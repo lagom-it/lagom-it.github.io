@@ -315,39 +315,29 @@
             <div class="heading_container heading_center">
               <h2>Get In Touch</h2>
             </div>
-            <form action="">
+            <form onsubmit="sendEmail(); return false;">
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="text" class="form-control" placeholder="Your Name" />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-lg-6">
-                  <input type="text" class="form-control" placeholder="Phone Number" />
-                </div>
-                <div class="form-group col-lg-6">
-                  <select name="" id="" class="form-control wide">
-                    <option value="">Select Service</option>
-                    <option value="">Service 1</option>
-                    <option value="">Service 2</option>
-                    <option value="">Service 3</option>
-                  </select>
+                  <input type="text" class="form-control" placeholder="Your Name" id="name"/>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="email" class="form-control" placeholder="Email" />
+                  <input type="text" class="form-control" placeholder="Phone Number" id="phone"/>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="text" class="message-box form-control" placeholder="Message" />
+                  <input type="email" class="form-control" placeholder="Email" id="email"/>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="message-box form-control" placeholder="Message" id="message"/>
                 </div>
               </div>
               <div class="btn_box">
-                <button>
-                  SEND
-                </button>
+                <button type="submit">Send</button>
               </div>
             </form>
           </div>
@@ -512,6 +502,34 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
+  <!-- mail service -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+(function(){
+      emailjs.init({
+        publicKey: "U-jyWBBDaLYOpV_8m",
+      });
+   })();
+
+
+  function sendEmail() {
+    var templateParams = {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_jpb8266", "template_96w3h58", templateParams)
+      .then(function(response) {
+        console.log('Success:', response);
+      }, function(error) {
+        console.log('Failed to send email:', error);
+      });
+  }
+</script>
+
+  <!-- End mail service -->
 </body>
 
 </html>
