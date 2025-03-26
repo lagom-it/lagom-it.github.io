@@ -1099,3 +1099,15 @@ a:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+@media (max-width: 768px) {
+  .img-box {
+    padding: 10px;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
