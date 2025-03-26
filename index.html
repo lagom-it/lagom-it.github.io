@@ -480,9 +480,17 @@
       .then(function(response) {
         console.log('Success:', response);
         alert("Thanks for contacting us,we will response back soon");
+        document.getElementById("name").value=""
+        document.getElementById("phone").value=""
+        document.getElementById("email").value=""
+        document.getElementById("message").value=""
       }, function(error) {
         console.log('Failed to send email:', error);
         alert("We are sorry,something went wrong,please call us at +34661003271");
+        document.getElementById("name").value=""
+        document.getElementById("phone").value=""
+        document.getElementById("email").value=""
+        document.getElementById("message").value=""
       });
   }
 </script>
